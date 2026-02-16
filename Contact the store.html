@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>พูดคุยหรือสอบถามทางร้าน</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    background-image: url(%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%871.png);
+    }
+    .contact-box {
+        width: 420px;
+        background: #ffffff;
+        padding: 20px;
+        margin: 50px auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .contact-box h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    .contact-option {
+        margin-bottom: 15px;
+    }
+    .contact-option label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 16px;
+    }
+    .contact-option label:hover {
+        background-color: #f0f8ff;
+    }
+    .contact-option i {
+        font-size: 20px;
+        color: #ff4d6d;
+    }
+    .contact-option input {
+        margin-right: 5px;
+    }
+    .info {
+        margin-top: 20px;
+        padding: 12px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        display: none;
+        font-size: 15px;
+    }
+</style>
+
+<script>
+function showInfo(type) {
+    document.getElementById("chat").style.display = "none";
+    document.getElementById("line").style.display = "none";
+    document.getElementById("phone").style.display = "none";
+
+    document.getElementById(type).style.display = "block";
+}
+</script>
+</head>
+
+<body>
+
+<div class="contact-box">
+    <h2>💬 พูดคุยหรือสอบถามทางร้าน</h2>
+
+    <div class="contact-option">
+        <label>
+            <input type="radio" name="contact" onclick="showInfo('chat')">
+            <i class="fa-solid fa-comments"></i>
+            แชทสอบถามผ่านเว็บไซต์
+        </label>
+    </div>
+
+    <div class="contact-option">
+        <label>
+            <input type="radio" name="contact" onclick="showInfo('line')">
+            <i class="fa-brands fa-line"></i>
+            ติดต่อผ่าน LINE
+        </label>
+    </div>
+
+    <div class="contact-option">
+        <label>
+            <input type="radio" name="contact" onclick="showInfo('phone')">
+            <i class="fa-solid fa-phone"></i>
+            ติดต่อทางโทรศัพท์
+        </label>
+    </div>
+
+    <div id="chat" class="info">
+        💻 แชทสดกับเจ้าหน้าที่  
+        <br>เวลาทำการ: 09.00 – 18.00 น.
+    </div>
+
+    <div id="line" class="info">
+        📱 LINE Official Account  
+        <br>ID : @ชื่อร้าน
+    </div>
+
+    <div id="phone" class="info">
+        📞 โทรศัพท์  
+        <br>0XX-XXX-XXXX
+    </div>
+</div>
+</body>
+</html>

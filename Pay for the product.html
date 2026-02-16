@@ -1,0 +1,99 @@
+<style type="text/css">
+body {
+    background-image: url(%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%871.png);
+}
+</style>
+<div class="payment-section">
+    <div class="payment-card">
+        <h3>ช่องทางการชำระเงิน</h3>
+
+        <!-- PromptPay -->
+        <label class="payment-item">
+      <div>
+        <h4>
+          <input type="radio" name="payment" onClick="showPromptPay()" checked>
+        PromptPay</h4>
+                <p>สแกน QR Code เพื่อชำระเงิน</p>
+            </div>
+        </label>
+
+        <div id="promptpayBox" class="info-box">
+          <p><strong>ชื่อบัญชี:</strong> น.ส. ธนัญญา เพ็งบูรณ์</p>
+            <p><strong>หมายเลข PromptPay:</strong> 08X-XXX-XXXX</p>
+        </div>
+
+        <!-- Bank Transfer -->
+        <label class="payment-item">
+      <div>
+        <h4>
+          <input type="radio" name="payment" onClick="showBank()">
+        โอนเงินผ่านธนาคาร</h4>
+                <p>เลือกธนาคารที่ต้องการ</p>
+            </div>
+        </label>
+
+        <div id="bankBox" class="info-box">
+            <select class="bank-select" onchange="changeBank(this.value)">
+                <option value="">-- เลือกธนาคาร --</option>
+                <option value="kbank">ธนาคารกสิกรไทย</option>
+                <option value="scb">ธนาคารไทยพาณิชย์</option>
+                <option value="ktb">ธนาคารกรุงไทย</option>
+                <option value="bbl">ธนาคารกรุงเทพ</option>
+            </select>
+
+            <div id="bankDetail"></div>
+        </div>
+
+        <button class="payment-btn">ยืนยันการชำระเงิน</button>
+    </div>
+</div>
+<table width="217" border="1">
+  <tbody>
+    <tr>
+      <td width="1045"><a href="index.html"><img src="Home (1).png" width="209" height="73" alt=""/></a></td>
+    </tr>
+  </tbody>
+</table>
+<script>
+function showPromptPay() {
+    document.getElementById("promptpayBox").style.display = "block";
+    document.getElementById("bankBox").style.display = "none";
+}
+
+function showBank() {
+    document.getElementById("bankBox").style.display = "block";
+    document.getElementById("promptpayBox").style.display = "none";
+}
+
+function changeBank(bank) {
+    let detail = document.getElementById("bankDetail");
+
+    if (bank === "kbank") {
+        detail.innerHTML = `
+            <p><strong>ธนาคาร:</strong> กสิกรไทย</p>
+            <p><strong>เลขบัญชี:</strong> 123-4-56789-0</p>
+            <p><strong>ชื่อบัญชี:</strong> น.ส. ธนัญญา เพ็งบูรณ์</p>
+        `;
+    } else if (bank === "scb") {
+        detail.innerHTML = `
+            <p><strong>ธนาคาร:</strong> ไทยพาณิชย์</p>
+            <p><strong>เลขบัญชี:</strong> 987-6-54321-0</p>
+            <p><strong>ชื่อบัญชี:</strong> น.ส. ธนัญญา เพ็งบูรณ์</p>
+        `;
+    } else if (bank === "ktb") {
+        detail.innerHTML = `
+            <p><strong>ธนาคาร:</strong> กรุงไทย</p>
+            <p><strong>เลขบัญชี:</strong> 111-2-33333-4</p>
+            <p><strong>ชื่อบัญชี:</strong> น.ส. ธนัญญา เพ็งบูรณ์</p>
+        `;
+    } else if (bank === "bbl") {
+        detail.innerHTML = `
+            <p><strong>ธนาคาร:</strong> กรุงเทพ</p>
+            <p><strong>เลขบัญชี:</strong> 555-0-99999-1</p>
+            <p><strong>ชื่อบัญชี:</strong> น.ส. ธนัญญา เพ็งบูรณ์</p>
+        `;
+    } else {
+        detail.innerHTML = "";
+    }
+}
+</script>
